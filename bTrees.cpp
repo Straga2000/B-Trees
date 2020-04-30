@@ -42,10 +42,19 @@ class BTree
             if (head != NULL) head->traverse();
         }
 
+        void searchNewKey(int k)
+        {
+            cout<<"\n";
+            if (head->search(k) == NULL)
+                cout<<"Nodul nu a fost gasit\n";
+            else
+                cout<<"Valoarea "<< k <<" a fost gasita\n";
+        }
+
         /// se cauta in arbore o cheie data
         BTreeNode* searchKey(int k)
         {
-            return (head == NULL)? NULL : head->search(k);
+            return head->search(k);
         }
 
         /// introducerea unei noi chei in B-Tree
@@ -144,6 +153,8 @@ int main()
     cout << "Numerele sortate sunt:\n";
     t.traverse();
     cout << "\n";
+
+    t.searchNewKey(addedNumber[0]);
 
     ///se sterg valorile din arbore
     for(int i = 0; i < LENGTH; i++)
